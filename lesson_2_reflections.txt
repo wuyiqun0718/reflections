@@ -1,0 +1,3 @@
+What happens when yo initialize a repository? why do you need to do it?
+
+apply git to the repository so you can track the history of it
