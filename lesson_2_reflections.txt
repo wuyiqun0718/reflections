@@ -1,3 +1,47 @@
 What happens when yo initialize a repository? why do you need to do it?
 
-apply git to the repository so you can track the history of it
+#apply git to the repository so you can track the history of it
+
+How is the staging area different from the working directory and the repository? What value do you think it offers?
+
+#The staging area is a monitored area by git. It is not required to contain all files from the working directory. The files are not yet in the repository so you can still add/remove files from the staging area before making a commit.
+
+git init | initiate a new repository
+git add  |    Add a file to the staging area
+git commit  |    Commit the files from the staging area to the repository 
+git status  |    Show which files are in the staging area, and which files from the working directory are not part of the repository    
+git diff  |    Git diff without arguments is comparing the working directory with the staging area
+git diff --staged  |    Compare the staging area with the repository
+git reset --hard  |    Undo all changes! There is no rollback for this, so be carefull!
+git checkout master  |    Restore the "Head" to the latest check-in (this will be part of a later lesson/module)
+git log --graph --oneline <branch1> <branch2>  |    Show a visual representation of the commit history within different branches
+git checkout -b new_branch_name  |    Creates a new branch and do a checkout on this branch in one call instead of git branch new_branch_name and git checkout new_branch_name
+git merge branch1 branch2  |    Merge two branches, branch2 get merged into branch1
+git branch -d name  |    Remove the branch with the specified name
+git show commitId  |    Show the changes made in this commit compared to the previous version. This is working even after merging.
+
+How can you use the staging area to make sure you have one commit per logical change?
+	The staging area gives you the possibility to decide which files should be part of the commit and which not.
+    This way you can split changed files in logical change sets.
+
+What are some situations when branches would be helpful in keeping your history organized?
+
+	when I want to try some new feature but don't want to change the feature of the original ones.
+    Work on conflicting changes, trying out new features, large code refactoring etc.
+    This gives the possibility to change everything with multiple commits into the "feature branch" and then do a large merge to the "main branch".
+    This will keep the history clean, but you can still use version control during development.
+    no bugs master branch/development branch/experimental branch
+
+How would branches help?
+    Split concerns. Safe to make big changes and test new things out.
+
+How do the diagrams help you visualize the branch structure?
+     By drawing the diagram you can directly see the relations between commits and branches. This makes it clear where to find specific changes.
+
+What is the result of merging two branches together? 
+    The result is one branch with changes from both branches.
+
+Why do we represent it in the diagram the way we do?
+    After a merge, all commits will be shown based on the timestamp in git log. This will show the commits from the two different branches running through each other.
+
+
